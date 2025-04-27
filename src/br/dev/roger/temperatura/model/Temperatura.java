@@ -3,7 +3,7 @@ package br.dev.roger.temperatura.model;
 public class Temperatura {
 
 
-	private double celsius;
+	private double celsius=14;
 	
 	public double getCelsius() {
 		return celsius;
@@ -18,11 +18,18 @@ public class Temperatura {
 		return temperatura;
 		
 	}
+	
+	public double converterParaFahrenheit(double fahrenheit) {
+		double temperatura = celsius * 1.8 + 32;
+		return temperatura;
+		
+	}
 		
 		public void exibirDados() {
 			System.out.println("-----------------");
 			System.out.println("Dados da circunferência");
-			System.out.println("temperatura" + converterParaKelvin(celsius));
+			System.out.println("temperatura celsius em kelvin " + converterParaKelvin(celsius));
+			System.out.println("temperatura celsius em Fahrenheit " + converterParaFahrenheit(celsius));
 
 	}
 	
