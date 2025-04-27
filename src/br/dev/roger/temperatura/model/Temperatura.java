@@ -26,13 +26,4 @@ public class Temperatura {
 	}
 	
 		
-		//public void exibirDados() {
-			//System.out.println("-----------------");
-			//System.out.println("Dados da circunferência");
-			//System.out.println("temperatura celsius em kelvin " + converterParaKelvin(celsius));
-			//System.out.println("temperatura celsius em Fahrenheit " + converterParaFahrenheit(celsius));
-
-	//}
-	
-
 }

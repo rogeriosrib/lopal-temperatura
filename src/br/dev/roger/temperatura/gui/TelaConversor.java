@@ -23,9 +23,9 @@ public class TelaConversor {
 	private JLabel labelMensagemErro;
 
 	// Criando fontes e cores usadas
-	private Font labelFont = new Font("Arial", Font.BOLD, 13);
-	private Font labelFontResultado = new Font("Arial", Font.BOLD, 15);
-	private Font labelMensagemFont = new Font("Arial", Font.BOLD, 15);
+	private Font FontDefault = new Font("Arial", Font.BOLD, 14);
+	private Font FontResultado = new Font("Arial", Font.BOLD, 16);
+	private Font ErrorFont = new Font("Arial", 3, 17);
 	private Color labelsColor = new Color(255, 0, 0);
 
 	public void criarTelaConversor() {
@@ -45,31 +45,31 @@ public class TelaConversor {
 		textCelsius.setBounds(30, 50, 380, 35);
 
 		labelCelsius = new JLabel();
-		labelCelsius.setFont(labelFont);
+		labelCelsius.setFont(FontDefault);
 		labelCelsius.setText("Temperatura em graus celsius : ");
-		labelCelsius.setBounds(30, 20, 250, 35);
+		labelCelsius.setBounds(30, 18, 250, 35);
 
 		buttonKelvin = new JButton();
 		buttonKelvin.setText("Kelvin");
-		buttonKelvin.setFont(labelFont);
+		buttonKelvin.setFont(FontDefault);
 		buttonKelvin.setBounds(230, 100, 180, 35);
 		;
 
 		buttonFahreinheit = new JButton();
 		buttonFahreinheit.setText("Fahreinheit");
-		buttonFahreinheit.setFont(labelFont);
+		buttonFahreinheit.setFont(FontDefault);
 		buttonFahreinheit.setBounds(30, 100, 180, 35);
 		;
 
 		labelResultado = new JLabel();
 		labelResultado.setText("");
-		labelResultado.setFont(labelFontResultado);
-		labelResultado.setBounds(165, 160, 180, 30);
+		labelResultado.setFont(FontResultado);
+		labelResultado.setBounds(160, 160, 180, 30);
 		
 		labelMensagemErro = new JLabel();
 		labelMensagemErro.setForeground(labelsColor);
-		labelMensagemErro.setFont(labelMensagemFont);
-		labelMensagemErro.setBounds(110, 200, 400, 50);
+		labelMensagemErro.setFont(ErrorFont);
+		labelMensagemErro.setBounds(100, 200, 400, 50);
 		
 
 
@@ -86,6 +86,7 @@ public class TelaConversor {
 				labelResultado.setText(fahreinheit + "° Fahreinheit");
 				textCelsius.setText(null);
 				textCelsius.requestFocus();
+				labelMensagemErro.setText(null);
 				
 				} catch (NumberFormatException ex) {
 					labelMensagemErro.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digite apenas números<br> sem letras ou outros caracteres</html>");
@@ -109,6 +110,8 @@ public class TelaConversor {
 				labelResultado.setText(celsius + "° Kelvin");
 				textCelsius.setText(null);
 				textCelsius.requestFocus();
+				labelMensagemErro.setText(null);
+				
 				} catch (NumberFormatException ex) {
 					labelMensagemErro.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digite apenas números<br> sem letras ou outros caracteres</html>");
 		            labelResultado.setText(null);
