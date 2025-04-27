@@ -19,19 +19,20 @@ public class Temperatura {
 		
 	}
 	
-	public double converterParaFahrenheit(double fahrenheit) {
+	public double converterParaFahrenheit(double fahreinheit) {
 		double temperatura = celsius * 1.8 + 32;
 		return temperatura;
 		
 	}
+	
 		
-		public void exibirDados() {
-			System.out.println("-----------------");
-			System.out.println("Dados da circunferência");
-			System.out.println("temperatura celsius em kelvin " + converterParaKelvin(celsius));
-			System.out.println("temperatura celsius em Fahrenheit " + converterParaFahrenheit(celsius));
+		//public void exibirDados() {
+			//System.out.println("-----------------");
+			//System.out.println("Dados da circunferência");
+			//System.out.println("temperatura celsius em kelvin " + converterParaKelvin(celsius));
+			//System.out.println("temperatura celsius em Fahrenheit " + converterParaFahrenheit(celsius));
 
-	}
+	//}
 	
 
 }
