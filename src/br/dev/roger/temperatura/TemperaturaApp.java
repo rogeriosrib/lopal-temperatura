@@ -1,14 +1,13 @@
 package br.dev.roger.temperatura;
 
-import br.dev.roger.temperatura.model.Temperatura;
+import br.dev.roger.temperatura.gui.TelaConversor;
 
 public class TemperaturaApp {
 
 	public static void main(String[] args) {
 		
-		Temperatura celsius = new Temperatura();
-		celsius.exibirDados();
-			
+		TelaConversor Tela = new TelaConversor();
+		Tela.criarTela();
 
 	}
 

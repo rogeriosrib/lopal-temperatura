@@ -3,7 +3,7 @@ package br.dev.roger.temperatura.model;
 public class Temperatura {
 
 
-	private double celsius=14;
+	private double celsius;
 	
 	public double getCelsius() {
 		return celsius;
