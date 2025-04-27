@@ -1,5 +1,6 @@
 package br.dev.roger.temperatura.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -21,7 +22,9 @@ public class TelaConversor {
 	private JLabel labelResultado;
 	private JLabel labelMensagemErro;
 
+	// Criando fontes e cores usadas
 	private Font labelFont = new Font("Arial", Font.BOLD, 13);
+	private Color labelsColor = new Color(255, 0, 0);
 
 	public void criarTela() {
 
@@ -46,29 +49,48 @@ public class TelaConversor {
 
 		buttonKelvin = new JButton();
 		buttonKelvin.setText("Kelvin");
+		buttonKelvin.setFont(labelFont);
 		buttonKelvin.setBounds(230, 100, 180, 35);
 		;
 
 		buttonFahreinheit = new JButton();
 		buttonFahreinheit.setText("Fahreinheit");
+		buttonFahreinheit.setFont(labelFont);
 		buttonFahreinheit.setBounds(30, 100, 180, 35);
 		;
 
 		labelResultado = new JLabel();
-		labelResultado.setText("Fahreinheit");
-		labelResultado.setBounds(140, 180, 180, 30);
+		labelResultado.setText("");
+		labelResultado.setFont(labelFont);
+		labelResultado.setBounds(165, 180, 180, 30);
+		
+		labelMensagemErro = new JLabel();
+		labelMensagemErro.setForeground(labelsColor);
+		labelMensagemErro.setFont(labelFont);
+		labelMensagemErro.setBounds(45, 210, 400, 50);
+		
+
 
 		buttonFahreinheit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
+				try {
 				Temperatura resultado = new Temperatura();
 				double celsius = Double.parseDouble(textCelsius.getText());
 				resultado.setCelsius(celsius);
-				double fahreinheit = resultado.converterParaFahrenheit(celsius);
+				double fahreinheit = resultado.converterParaFahrenheit();
 				labelResultado.setText(fahreinheit + "° Fahreinheit");
-
+				textCelsius.setText(null);
+				textCelsius.requestFocus();
+				
+				} catch (NumberFormatException ex) {
+					labelMensagemErro.setText("Digite apenas números \n sem letras ou outros caracteres");
+		            labelResultado.setText(null);
+		            textCelsius.setText(null);
+		            textCelsius.requestFocus();
+		        }
 			}
 		});
 		
@@ -76,12 +98,21 @@ public class TelaConversor {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
 				Temperatura resultado = new Temperatura();
 				double kelvin = Double.parseDouble(textCelsius.getText());
 				resultado.setCelsius(kelvin);
-				double celsius = resultado.converterParaKelvin(kelvin);
+				double celsius = resultado.converterParaKelvin();
 				labelResultado.setText(celsius + "° Kelvin");
-						
+				textCelsius.setText(null);
+				textCelsius.requestFocus();
+				} catch (NumberFormatException ex) {
+					labelMensagemErro.setText("Digite apenas números \n sem letras ou outros caracteres");
+		            labelResultado.setText(null);
+		            textCelsius.setText(null);
+		            textCelsius.requestFocus();
+		        }
 				
 			}
 		});
@@ -93,6 +124,7 @@ public class TelaConversor {
 		tela.getContentPane().add(buttonKelvin);
 		tela.getContentPane().add(buttonFahreinheit);
 		tela.getContentPane().add(labelResultado);
+		tela.getContentPane().add(labelMensagemErro);
 
 		tela.setVisible(true);
 	}
