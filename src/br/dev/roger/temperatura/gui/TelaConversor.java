@@ -71,6 +71,22 @@ public class TelaConversor {
 
 			}
 		});
+		
+		buttonKelvin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Temperatura resultado = new Temperatura();
+				double kelvin = Double.parseDouble(textCelsius.getText());
+				resultado.setCelsius(kelvin);
+				double celsius = resultado.converterParaKelvin(kelvin);
+				labelResultado.setText(celsius + "° Kelvin");
+						
+				
+			}
+		});
+		
+		
 
 		tela.getContentPane().add(textCelsius);
 		tela.getContentPane().add(labelCelsius);
