@@ -6,8 +6,8 @@ public class TemperaturaApp {
 
 	public static void main(String[] args) {
 		
-		Temperatura temperatura = new Temperatura();
-		Temperatura
+		Temperatura celsius = new Temperatura();
+		celsius.exibirDados();
 			
 
 	}

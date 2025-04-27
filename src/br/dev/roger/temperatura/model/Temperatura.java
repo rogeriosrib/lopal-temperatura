@@ -4,7 +4,7 @@ public class Temperatura {
 
 
 	private double celsius;
-
+	
 	public double getCelsius() {
 		return celsius;
 	}
@@ -14,9 +14,16 @@ public class Temperatura {
 	}
 		
 	public double converterParaKelvin(double kelvin) {
-		return kelvin = celsius + 273.15;
+		double temperatura = celsius + 273.15;
+		return temperatura;
 		
-		System.out.println(kelvin);
+	}
+		
+		public void exibirDados() {
+			System.out.println("-----------------");
+			System.out.println("Dados da circunferência");
+			System.out.println("temperatura" + converterParaKelvin(celsius));
+
 	}
 	
 
