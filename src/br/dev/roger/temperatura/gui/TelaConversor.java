@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import br.dev.roger.temperatura.model.Temperatura;
 
 public class TelaConversor {
-
+	
 	private JTextField textCelsius;
 	private JLabel labelCelsius;
 	private JButton buttonKelvin;
@@ -24,9 +24,11 @@ public class TelaConversor {
 
 	// Criando fontes e cores usadas
 	private Font labelFont = new Font("Arial", Font.BOLD, 13);
+	private Font labelFontResultado = new Font("Arial", Font.BOLD, 15);
+	private Font labelMensagemFont = new Font("Arial", Font.BOLD, 15);
 	private Color labelsColor = new Color(255, 0, 0);
 
-	public void criarTela() {
+	public void criarTelaConversor() {
 
 		JFrame tela = new JFrame();
 
@@ -61,13 +63,13 @@ public class TelaConversor {
 
 		labelResultado = new JLabel();
 		labelResultado.setText("");
-		labelResultado.setFont(labelFont);
-		labelResultado.setBounds(165, 180, 180, 30);
+		labelResultado.setFont(labelFontResultado);
+		labelResultado.setBounds(165, 160, 180, 30);
 		
 		labelMensagemErro = new JLabel();
 		labelMensagemErro.setForeground(labelsColor);
-		labelMensagemErro.setFont(labelFont);
-		labelMensagemErro.setBounds(45, 210, 400, 50);
+		labelMensagemErro.setFont(labelMensagemFont);
+		labelMensagemErro.setBounds(110, 200, 400, 50);
 		
 
 
@@ -86,7 +88,7 @@ public class TelaConversor {
 				textCelsius.requestFocus();
 				
 				} catch (NumberFormatException ex) {
-					labelMensagemErro.setText("Digite apenas números \n sem letras ou outros caracteres");
+					labelMensagemErro.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digite apenas números<br> sem letras ou outros caracteres</html>");
 		            labelResultado.setText(null);
 		            textCelsius.setText(null);
 		            textCelsius.requestFocus();
@@ -108,7 +110,7 @@ public class TelaConversor {
 				textCelsius.setText(null);
 				textCelsius.requestFocus();
 				} catch (NumberFormatException ex) {
-					labelMensagemErro.setText("Digite apenas números \n sem letras ou outros caracteres");
+					labelMensagemErro.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digite apenas números<br> sem letras ou outros caracteres</html>");
 		            labelResultado.setText(null);
 		            textCelsius.setText(null);
 		            textCelsius.requestFocus();
