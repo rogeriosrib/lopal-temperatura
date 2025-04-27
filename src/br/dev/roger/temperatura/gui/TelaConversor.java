@@ -22,7 +22,7 @@ public class TelaConversor {
 		JFrame tela = new JFrame();
 
 		Dimension tamanho = new Dimension();
-		tamanho.setSize(500, 400);
+		tamanho.setSize(460, 400);
 		tela.setSize(tamanho);
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setTitle("Conversor de Temperatura");
@@ -30,12 +30,15 @@ public class TelaConversor {
 		tela.setLocationRelativeTo(null);
 		tela.setResizable(false);
 		
-		textCelsius.setText("Temperatura em graus Celsius:");
-		textCelsius.setBounds(50, 50, 50, 50);
+		textCelsius = new JTextField();
+		textCelsius.setBounds(30, 80, 385, 35);
+
+		labelCelsius = new JLabel();
+		labelCelsius.setText("Temperatura em graus celsius : ");
+		labelCelsius.setBounds(30, 50, 200, 35);
 		
-		
-		
-		
+		tela.getContentPane().add(textCelsius);
+		tela.getContentPane().add(labelCelsius);
 		
 		tela.setVisible(true);
 	}
