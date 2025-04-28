@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import br.dev.roger.temperatura.model.Temperatura;
 
 public class TelaConversor {
-	
+	// Criando atributos da TelaConversor
 	private JTextField textCelsius;
 	private JLabel labelCelsius;
 	private JButton buttonKelvin;
@@ -28,8 +28,10 @@ public class TelaConversor {
 	private Font ErrorFont = new Font("Arial", 3, 17);
 	private Color labelsColor = new Color(255, 0, 0);
 
+	// Método que cria a tela
 	public void criarTelaConversor() {
 
+		// Criando a tela usando JFrame e definindo tamanho através do Dimension
 		JFrame tela = new JFrame();
 
 		Dimension tamanho = new Dimension();
@@ -41,38 +43,42 @@ public class TelaConversor {
 		tela.setLocationRelativeTo(null);
 		tela.setResizable(false);
 
+		// Campo para colocar o número desejado de Celsius
 		textCelsius = new JTextField();
 		textCelsius.setBounds(30, 50, 380, 35);
 
+		// Texto informando o que deve ser colocado no campo
 		labelCelsius = new JLabel();
 		labelCelsius.setFont(FontDefault);
 		labelCelsius.setText("Temperatura em graus celsius : ");
 		labelCelsius.setBounds(30, 18, 250, 35);
 
+		// Botão que realiza a conversão de Celsius para Kelvin
 		buttonKelvin = new JButton();
 		buttonKelvin.setText("Kelvin");
 		buttonKelvin.setFont(FontDefault);
 		buttonKelvin.setBounds(230, 100, 180, 35);
-		;
 
+		// Botão que realiza a conversão de Celsius para Kelvin
 		buttonFahreinheit = new JButton();
 		buttonFahreinheit.setText("Fahreinheit");
 		buttonFahreinheit.setFont(FontDefault);
 		buttonFahreinheit.setBounds(30, 100, 180, 35);
-		;
-
+		
+		// Texto que informa o resultado
 		labelResultado = new JLabel();
 		labelResultado.setText("");
 		labelResultado.setFont(FontResultado);
 		labelResultado.setBounds(160, 160, 180, 30);
 		
+		// Texto que informa o usuário caso coloque uma informação errada
 		labelMensagemErro = new JLabel();
 		labelMensagemErro.setForeground(labelsColor);
 		labelMensagemErro.setFont(ErrorFont);
 		labelMensagemErro.setBounds(100, 200, 400, 50);
 		
 
-
+		// Adicionando função ao botão Fahreinheit
 		buttonFahreinheit.addActionListener(new ActionListener() {
 
 			@Override
@@ -97,6 +103,7 @@ public class TelaConversor {
 			}
 		});
 		
+		// Adicionando função ao botão Kelvin
 		buttonKelvin.addActionListener(new ActionListener() {
 			
 			@Override
@@ -123,14 +130,15 @@ public class TelaConversor {
 		});
 		
 		
-
+		// Adicionando Labels, botões e Jframes ao painel de contéudo
 		tela.getContentPane().add(textCelsius);
 		tela.getContentPane().add(labelCelsius);
 		tela.getContentPane().add(buttonKelvin);
 		tela.getContentPane().add(buttonFahreinheit);
 		tela.getContentPane().add(labelResultado);
 		tela.getContentPane().add(labelMensagemErro);
-
+		
+		// Tornando a tela visível
 		tela.setVisible(true);
 	}
 
