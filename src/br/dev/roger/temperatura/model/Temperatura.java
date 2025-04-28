@@ -14,13 +14,13 @@ public class Temperatura {
 		this.celsius = celsius;
 	}
 		
-	// Métodos para conversão da temperatura
+	// Métodos para conversão da temperatura kelvin
 	public double converterParaKelvin() {
 		double temperatura = celsius + 273.15;
 		return temperatura;
 		
 	}
-	
+	// Métodos para conversão da temperatura fanreinheit
 	public double converterParaFahrenheit() {
 		double temperatura = celsius * 1.8 + 32;
 		return temperatura;
