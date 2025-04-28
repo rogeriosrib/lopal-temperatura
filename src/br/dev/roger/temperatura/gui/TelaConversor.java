@@ -35,23 +35,23 @@ public class TelaConversor {
 		JFrame tela = new JFrame();
 
 		Dimension tamanho = new Dimension();
-		
-		//Defino tamanho
+
+		// Defino tamanho
 		tamanho.setSize(460, 350);
 		tela.setSize(tamanho);
-		
-		//Defino função do botão fechar
+
+		// Defino função do botão fechar
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		// Título da tela
 		tela.setTitle("Conversor de Temperatura");
-		
+
 		// Me permite posicionar os JLabels Jbuttons e Jframes usando xy
 		tela.setLayout(null);
-		
+
 		// Centraliza o Jframe
 		tela.setLocationRelativeTo(null);
-		
+
 		// Define que a tela não seja redimensionável
 		tela.setResizable(false);
 
@@ -78,76 +78,81 @@ public class TelaConversor {
 		buttonFahreinheit.setText("Fahreinheit");
 		buttonFahreinheit.setFont(FontDefault);
 		buttonFahreinheit.setBounds(30, 100, 180, 35);
-		
+
 		// Texto que informa o resultado
 		labelResultado = new JLabel();
 		labelResultado.setText("");
 		labelResultado.setFont(FontResultado);
 		labelResultado.setBounds(160, 160, 180, 30);
-		
+
 		// Texto que informa o usuário caso coloque uma informação errada
 		labelMensagemErro = new JLabel();
 		labelMensagemErro.setForeground(labelsColor);
 		labelMensagemErro.setFont(ErrorFont);
 		labelMensagemErro.setBounds(100, 200, 400, 50);
-		
 
 		// Adicionando função ao botão Fahreinheit
 		buttonFahreinheit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				// Try tenta converter o número atribuido ao campo, caso seja um caracter inválido ele usa o catch
+
+				// Try tenta converter o número atribuido ao campo, caso seja um caracter
+				// inválido ele usa o catch
 				try {
-				Temperatura resultado = new Temperatura();
-				double celsius = Double.parseDouble(textCelsius.getText());
-				resultado.setCelsius(celsius);
-				double fahreinheit = resultado.converterParaFahrenheit();
-				labelResultado.setText(fahreinheit + "° Fahreinheit");
-				textCelsius.setText(null);
-				textCelsius.requestFocus();
-				labelMensagemErro.setText(null);
-				
-				// Torna visível a mensagem de erro, limpa os campos e direciona para o campo de digitação
+					Temperatura resultado = new Temperatura();
+					double celsius = Double.parseDouble(textCelsius.getText());
+					resultado.setCelsius(celsius);
+					double fahreinheit = resultado.converterParaFahrenheit();
+					labelResultado.setText(fahreinheit + "° Fahreinheit");
+					textCelsius.setText(null);
+					textCelsius.requestFocus();
+					labelMensagemErro.setText(null);
+
+					// Torna visível a mensagem de erro, limpa os campos e direciona para o campo de
+					// digitação
 				} catch (NumberFormatException ex) {
-					labelMensagemErro.setText("<html>&nbsp;Por favor digite algum número<br> sem letras ou outros caracteres</html>");;
-		            labelResultado.setText(null);
-		            textCelsius.setText(null);
-		            textCelsius.requestFocus();
-		        }
-			
+					labelMensagemErro.setText(
+							"<html>&nbsp;Por favor digite algum número<br> sem letras ou outros caracteres</html>");
+					;
+					labelResultado.setText(null);
+					textCelsius.setText(null);
+					textCelsius.requestFocus();
+				}
+
 			}
 		});
-		
+
 		// Adicionando função ao botão Kelvin
 		buttonKelvin.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Try tenta converter o número atribuido ao campo, caso seja um caracter inválido ele usa o catch
+				// Try tenta converter o número atribuido ao campo, caso seja um caracter
+				// inválido ele usa o catch
 				try {
-				Temperatura resultado = new Temperatura();
-				double kelvin = Double.parseDouble(textCelsius.getText());
-				resultado.setCelsius(kelvin);
-				double celsius = resultado.converterParaKelvin();
-				labelResultado.setText(celsius + "° Kelvin");
-				textCelsius.setText(null);
-				textCelsius.requestFocus();
-				labelMensagemErro.setText(null);
-				
-				// Torna visível a mensagem de erro, limpa os campos e direciona para o campo de digitação
+					Temperatura resultado = new Temperatura();
+					double kelvin = Double.parseDouble(textCelsius.getText());
+					resultado.setCelsius(kelvin);
+					double celsius = resultado.converterParaKelvin();
+					labelResultado.setText(celsius + "° Kelvin");
+					textCelsius.setText(null);
+					textCelsius.requestFocus();
+					labelMensagemErro.setText(null);
+
+					// Torna visível a mensagem de erro, limpa os campos e direciona para o campo de
+					// digitação
 				} catch (NumberFormatException ex) {
-					labelMensagemErro.setText("<html>&nbsp;Por favor digite algum número<br> sem letras ou outros caracteres</html>");
-		            labelResultado.setText(null);
-		            textCelsius.setText(null);
-		            textCelsius.requestFocus();
-		        }
-				
+					labelMensagemErro.setText(
+							"<html>&nbsp;Por favor digite algum número<br> sem letras ou outros caracteres</html>");
+					labelResultado.setText(null);
+					textCelsius.setText(null);
+					textCelsius.requestFocus();
+				}
+
 			}
 		});
-		
-		
+
 		// Adicionando Labels, Jbuttons e Jframes ao painel de contéudo
 		tela.getContentPane().add(textCelsius);
 		tela.getContentPane().add(labelCelsius);
@@ -155,7 +160,7 @@ public class TelaConversor {
 		tela.getContentPane().add(buttonFahreinheit);
 		tela.getContentPane().add(labelResultado);
 		tela.getContentPane().add(labelMensagemErro);
-		
+
 		// Tornando a tela visível
 		tela.setVisible(true);
 	}
