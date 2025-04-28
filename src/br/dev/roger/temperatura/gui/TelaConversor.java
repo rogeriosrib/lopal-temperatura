@@ -35,12 +35,24 @@ public class TelaConversor {
 		JFrame tela = new JFrame();
 
 		Dimension tamanho = new Dimension();
+		
+		//Defino tamanho
 		tamanho.setSize(460, 350);
 		tela.setSize(tamanho);
+		
+		//Defino função do botão fechar
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// Título da tela
 		tela.setTitle("Conversor de Temperatura");
+		
+		// Me permite posicionar os JLabels Jbuttons e Jframes usando xy
 		tela.setLayout(null);
+		
+		// Centraliza o Jframe
 		tela.setLocationRelativeTo(null);
+		
+		// Define que a tela não seja redimensionável
 		tela.setResizable(false);
 
 		// Campo para colocar o número desejado de Celsius
@@ -49,8 +61,10 @@ public class TelaConversor {
 
 		// Texto informando o que deve ser colocado no campo
 		labelCelsius = new JLabel();
+		// Defino a fonte do campo
 		labelCelsius.setFont(FontDefault);
 		labelCelsius.setText("Temperatura em graus celsius : ");
+		// Defino posição
 		labelCelsius.setBounds(30, 18, 250, 35);
 
 		// Botão que realiza a conversão de Celsius para Kelvin
@@ -84,6 +98,7 @@ public class TelaConversor {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				// Try tenta converter o número atribuido ao campo, caso seja um caracter inválido ele usa o catch
 				try {
 				Temperatura resultado = new Temperatura();
 				double celsius = Double.parseDouble(textCelsius.getText());
@@ -94,12 +109,14 @@ public class TelaConversor {
 				textCelsius.requestFocus();
 				labelMensagemErro.setText(null);
 				
+				// Torna visível a mensagem de erro, limpa os campos e direciona para o campo de digitação
 				} catch (NumberFormatException ex) {
-					labelMensagemErro.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digite apenas números<br> sem letras ou outros caracteres</html>");
+					labelMensagemErro.setText("<html>&nbsp;Por favor digite algum número<br> sem letras ou outros caracteres</html>");;
 		            labelResultado.setText(null);
 		            textCelsius.setText(null);
 		            textCelsius.requestFocus();
 		        }
+			
 			}
 		});
 		
@@ -108,7 +125,7 @@ public class TelaConversor {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				// Try tenta converter o número atribuido ao campo, caso seja um caracter inválido ele usa o catch
 				try {
 				Temperatura resultado = new Temperatura();
 				double kelvin = Double.parseDouble(textCelsius.getText());
@@ -119,8 +136,9 @@ public class TelaConversor {
 				textCelsius.requestFocus();
 				labelMensagemErro.setText(null);
 				
+				// Torna visível a mensagem de erro, limpa os campos e direciona para o campo de digitação
 				} catch (NumberFormatException ex) {
-					labelMensagemErro.setText("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digite apenas números<br> sem letras ou outros caracteres</html>");
+					labelMensagemErro.setText("<html>&nbsp;Por favor digite algum número<br> sem letras ou outros caracteres</html>");
 		            labelResultado.setText(null);
 		            textCelsius.setText(null);
 		            textCelsius.requestFocus();
@@ -130,7 +148,7 @@ public class TelaConversor {
 		});
 		
 		
-		// Adicionando Labels, botões e Jframes ao painel de contéudo
+		// Adicionando Labels, Jbuttons e Jframes ao painel de contéudo
 		tela.getContentPane().add(textCelsius);
 		tela.getContentPane().add(labelCelsius);
 		tela.getContentPane().add(buttonKelvin);
